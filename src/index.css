@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", serif;
+  
+  --color-romantic-50: #fff5f5;
+  --color-romantic-100: #ffe3e3;
+  --color-romantic-200: #ffc9c9;
+  --color-romantic-300: #ffa8a8;
+  --color-romantic-400: #ff8787;
+  --color-romantic-500: #ff6b6b;
+  --color-romantic-600: #fa5252;
+  --color-romantic-700: #f03e3e;
+  --color-romantic-800: #e03131;
+  --color-romantic-900: #c92a2a;
+}
+
+body {
+  @apply bg-romantic-50 text-gray-900 antialiased;
+}

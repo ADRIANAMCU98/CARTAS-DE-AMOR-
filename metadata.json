@@ -1,0 +1,6 @@
+{
+  "name": "Ecos del Corazón",
+  "description": "Crea y guarda cartas de amor personalizadas con IA para reconectar con tus seres queridos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,25 @@
+{
+  "entities": {
+    "Letter": {
+      "title": "Letter",
+      "description": "A generated love letter.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "The UID of the user who created the letter." },
+        "recipientName": { "type": "string", "description": "Name of the person receiving the letter." },
+        "context": { "type": "string", "description": "Context of the relationship or reason for writing." },
+        "style": { "type": "string", "description": "The tone/style of the letter." },
+        "content": { "type": "string", "description": "The AI-generated content of the letter." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the letter was created." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "When the letter was last updated." }
+      },
+      "required": ["userId", "recipientName", "context", "style", "content", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/letters/{letterId}": {
+      "schema": "Letter",
+      "description": "Collection of love letters."
+    }
+  }
+}
