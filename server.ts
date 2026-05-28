@@ -31,14 +31,20 @@ async function startServer() {
         return res.status(400).json({ error: "Missing required fields" });
       }
 
-      const prompt = `Escribe una carta de amor o afecto para alguien con quien no has hablado en mucho tiempo.
-      Destinatario: ${recipientName}
-      Relación/Contexto: ${context}
-      Estilo: ${style}
-      
-      La carta debe ser sentida, respetuosa y buscar reconectar de manera genuina. 
-      No uses marcadores de posición como "[Tu nombre]". Deja claro que el remitente la está escribiendo desde el corazón.
-      Escribe solo la carta, sin comentarios adicionales.`;
+      const prompt = `Eres un maestro de las cartas de amor y reconciliación en español. Escribe UNA carta íntima y memorable.
+
+Destinatario: ${recipientName}
+Contexto y relación: ${context}
+Tono solicitado: ${style}
+
+Instrucciones de calidad premium:
+- Abre con una imagen o sensación evocadora, no con clichés vacíos.
+- Incluye al menos un recuerdo o detalle concreto inspirado en el contexto (sin inventar hechos que contradigan lo dado).
+- Cierra con una invitación suave a reconectar, sin presionar.
+- Longitud: entre 180 y 320 palabras. Párrafos cortos, ritmo literario.
+- Voz en primera persona del remitente. Tutea o trata de "usted" según encaje con el tono.
+- Prohibido: marcadores [nombre], listas con viñetas, encabezados, notas del autor, emojis.
+- Escribe SOLO el cuerpo de la carta (sin "Querido/a", sin firma con nombre inventado).`;
 
       const result = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
