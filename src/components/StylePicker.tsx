@@ -54,20 +54,22 @@ export function StylePicker({
             whileTap={{ scale: 0.98 }}
             className={`text-left p-4 rounded-2xl border-2 transition-all duration-300 ${
               selected
-                ? "border-rose-400/80 bg-white shadow-lg shadow-rose-100/60 ring-2 ring-rose-200/50"
-                : "border-transparent bg-white/60 hover:bg-white hover:border-rose-100 hover:shadow-md"
+                ? "border-violet-400/70 bg-white shadow-lg shadow-violet-200/50 ring-2 ring-violet-300/40"
+                : "border-transparent bg-white/60 hover:bg-white hover:border-violet-200/60 hover:shadow-md"
             }`}
           >
             <div className="flex items-start gap-3">
               <div
                 className={`p-2.5 rounded-xl shrink-0 ${
-                  selected ? "bg-gradient-to-br from-rose-400 to-rose-600 text-white" : "bg-rose-50 text-rose-500"
+                  selected
+                    ? "bg-gradient-to-br from-indigo-500 via-violet-500 to-pink-500 text-white shadow-md shadow-violet-300/40"
+                    : "bg-gradient-to-br from-violet-50 to-fuchsia-50 text-violet-600"
                 }`}
               >
                 <Icon size={20} />
               </div>
               <div>
-                <p className={`font-semibold ${selected ? "text-rose-800" : "text-gray-800"}`}>{s.label}</p>
+                <p className={`font-semibold ${selected ? "text-violet-900" : "text-gray-800"}`}>{s.label}</p>
                 <p className="text-xs text-gray-500 mt-0.5 leading-snug">{s.desc}</p>
               </div>
             </div>

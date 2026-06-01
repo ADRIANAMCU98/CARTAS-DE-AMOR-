@@ -21,8 +21,8 @@ export function ToastContainer({ toasts }: { toasts: ToastMessage[] }) {
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl backdrop-blur-xl border pointer-events-auto ${
               t.type === "success"
-                ? "bg-white/90 border-emerald-200/80 text-gray-800"
-                : "bg-white/90 border-red-200/80 text-gray-800"
+                ? "bg-white/95 border-violet-200/80 text-gray-800 shadow-violet-100/50"
+                : "bg-white/95 border-pink-200/80 text-gray-800 shadow-pink-100/50"
             }`}
           >
             {t.type === "success" ? (

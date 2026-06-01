@@ -51,14 +51,16 @@ const Navbar = ({ user }: { user: User | null }) => (
       className="flex items-center gap-3"
     >
       <div className="relative">
-        <div className="absolute inset-0 bg-romantic-400/30 blur-lg rounded-full" />
-        <Heart className="relative text-romantic-600 fill-romantic-500" size={26} />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-400/40 via-violet-500/35 to-pink-400/30 blur-lg rounded-full" />
+        <Heart className="relative text-violet-600 fill-pink-500" size={26} />
       </div>
       <div>
-        <span className="font-serif text-xl font-semibold tracking-tight text-burgundy-800">
+        <span className="font-serif text-xl font-semibold tracking-tight heading-gradient">
           Ecos del Corazón
         </span>
-        <p className="text-[10px] uppercase tracking-[0.2em] text-romantic-500 -mt-0.5">Cartas de amor</p>
+        <p className="text-[10px] uppercase tracking-[0.2em] bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent -mt-0.5 font-medium">
+          Cartas de amor
+        </p>
       </div>
     </motion.div>
     {user && (
@@ -67,9 +69,9 @@ const Navbar = ({ user }: { user: User | null }) => (
           {user.displayName?.split(" ")[0]}
         </span>
         <img
-          src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName}&background=f2d4cc&color=733a32`}
+          src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName}&background=ede9fe&color=5b21b6`}
           alt="Perfil"
-          className="w-9 h-9 rounded-full border-2 border-white shadow-md ring-1 ring-romantic-200"
+          className="w-9 h-9 rounded-full border-2 border-white shadow-md ring-2 ring-violet-200/80"
         />
         <button
           onClick={logout}
@@ -91,8 +93,8 @@ const LoadingScreen = () => (
       transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
       className="relative"
     >
-      <div className="absolute inset-0 bg-romantic-400/20 blur-2xl rounded-full scale-150" />
-      <Heart className="relative text-romantic-500" size={56} fill="currentColor" />
+      <div className="absolute inset-0 bg-gradient-to-br from-violet-400/30 via-fuchsia-400/25 to-pink-400/30 blur-2xl rounded-full scale-150" />
+      <Heart className="relative text-violet-500" size={56} fill="currentColor" />
     </motion.div>
     <p className="font-serif text-xl text-romantic-700 italic">Abriendo tu buzón del alma...</p>
   </div>
@@ -107,8 +109,8 @@ const LoginScreen = () => (
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="max-w-lg w-full glass-card rounded-[2rem] p-10 md:p-12 text-center relative overflow-hidden"
     >
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-romantic-200/40 rounded-full blur-3xl" />
-      <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-gold-400/20 rounded-full blur-2xl" />
+      <div className="absolute -top-20 -right-20 w-48 h-48 bg-gradient-to-br from-indigo-400/30 to-violet-500/25 rounded-full blur-3xl" />
+      <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-gradient-to-tr from-fuchsia-400/25 to-pink-400/20 rounded-full blur-3xl" />
 
       <div className="relative mb-8 flex justify-center">
         <motion.div
@@ -148,7 +150,7 @@ const LoginScreen = () => (
 
       <button
         onClick={() => loginWithGoogle().catch(console.error)}
-        className="relative w-full flex items-center justify-center gap-3 bg-white border border-romantic-200 rounded-2xl py-4 px-6 font-semibold text-gray-700 hover:shadow-lg hover:border-romantic-300 transition-all active:scale-[0.98]"
+        className="relative w-full flex items-center justify-center gap-3 bg-white/90 border border-violet-200/80 rounded-2xl py-4 px-6 font-semibold text-gray-700 hover:shadow-lg hover:shadow-violet-200/40 hover:border-violet-300 transition-all active:scale-[0.98]"
       >
         <img
           src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/controller/google.svg"
@@ -334,8 +336,8 @@ export default function App() {
               >
                 Bienvenida de vuelta
               </motion.p>
-              <h2 className="font-serif text-4xl md:text-6xl font-semibold mb-6 text-burgundy-800 leading-tight">
-                Las palabras que
+              <h2 className="font-serif text-4xl md:text-6xl font-semibold mb-6 leading-tight">
+                <span className="heading-gradient">Las palabras que</span>
                 <br />
                 <span className="shimmer-text italic">cruzan distancias</span>
               </h2>
@@ -363,11 +365,11 @@ export default function App() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="mt-20 pt-16 border-t border-romantic-200/60"
+                  className="mt-20 pt-16 border-t border-violet-200/50"
                 >
                   <div className="flex items-center justify-center gap-2 mb-8">
                     <Quote size={18} className="text-romantic-400" />
-                    <h3 className="font-serif text-2xl text-burgundy-800">Últimas cartas</h3>
+                    <h3 className="font-serif text-2xl heading-gradient">Últimas cartas</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-left">
                     {history.slice(0, 2).map((letter, i) => (
@@ -388,7 +390,7 @@ export default function App() {
                         </p>
                         <div className="flex justify-between items-center text-xs text-gray-400">
                           <span>{formatDate(letter)}</span>
-                          <span className="bg-romantic-100/80 text-romantic-700 px-3 py-1 rounded-full font-medium">
+                          <span className="bg-gradient-to-r from-violet-100 to-fuchsia-100 text-violet-800 px-3 py-1 rounded-full font-medium">
                             {letter.style.split(" ")[0]}
                           </span>
                         </div>
@@ -422,7 +424,7 @@ export default function App() {
                 <div className="glass-card rounded-[2rem] p-8 md:p-10">
                   <div className="flex items-center gap-3 mb-2">
                     <Sparkles className="text-gold-500" size={28} />
-                    <h2 className="font-serif text-3xl font-semibold text-burgundy-800">Nueva carta</h2>
+                    <h2 className="font-serif text-3xl font-semibold heading-gradient">Nueva carta</h2>
                   </div>
                   <p className="text-gray-500 mb-8">Cuéntanos tu historia; nosotros encontramos las palabras.</p>
 
@@ -507,14 +509,14 @@ export default function App() {
                       </button>
                       <button
                         onClick={() => copyToClipboard(generatedLetter)}
-                        className="flex items-center gap-2 bg-white/90 text-gray-700 font-semibold py-3 px-6 rounded-xl hover:shadow-md border border-romantic-200 transition-all active:scale-[0.98]"
+                        className="flex items-center gap-2 bg-white/90 text-gray-700 font-semibold py-3 px-6 rounded-xl hover:shadow-md border border-violet-200/70 transition-all active:scale-[0.98]"
                       >
                         {copied ? <Check size={18} className="text-emerald-500" /> : <Copy size={18} />}
                         {copied ? "Copiado" : "Copiar"}
                       </button>
                       <button
                         onClick={() => shareLetter(generatedLetter, recipient)}
-                        className="flex items-center gap-2 bg-white/90 text-gray-700 font-semibold py-3 px-6 rounded-xl hover:shadow-md border border-romantic-200 transition-all active:scale-[0.98]"
+                        className="flex items-center gap-2 bg-white/90 text-gray-700 font-semibold py-3 px-6 rounded-xl hover:shadow-md border border-violet-200/70 transition-all active:scale-[0.98]"
                       >
                         <Share2 size={18} /> Compartir
                       </button>
@@ -561,11 +563,11 @@ export default function App() {
                 </button>
               </div>
 
-              <h2 className="font-serif text-4xl font-semibold mb-2 text-burgundy-800">Tu archivo del corazón</h2>
+              <h2 className="font-serif text-4xl font-semibold mb-2 heading-gradient">Tu archivo del corazón</h2>
               <p className="text-gray-500 mb-10">{history.length} carta{history.length !== 1 ? "s" : ""} guardada{history.length !== 1 ? "s" : ""}</p>
 
               {history.length === 0 ? (
-                <div className="text-center py-24 glass-card rounded-[2rem] border-dashed border-2 border-romantic-200">
+                <div className="text-center py-24 glass-card rounded-[2rem] border-dashed border-2 border-violet-200/70">
                   <Moon size={52} className="mx-auto text-romantic-300 mb-5" />
                   <p className="text-gray-500 text-xl font-serif italic mb-6">
                     Tu archivo está vacío... por ahora.
@@ -590,7 +592,7 @@ export default function App() {
                     >
                       <div className="flex justify-between items-start mb-5">
                         <div>
-                          <h3 className="font-serif text-2xl font-semibold text-burgundy-800">
+                          <h3 className="font-serif text-2xl font-semibold heading-gradient">
                             Para {letter.recipientName}
                           </h3>
                           <p className="text-sm text-gray-400 mt-1">{formatDate(letter)}</p>
@@ -603,11 +605,11 @@ export default function App() {
                           <Trash2 size={18} />
                         </button>
                       </div>
-                      <div className="bg-champagne-100/80 p-6 rounded-2xl mb-5 font-serif text-lg leading-relaxed italic text-gray-700 whitespace-pre-wrap border border-champagne-200/60">
+                      <div className="bg-gradient-to-br from-violet-50/90 via-fuchsia-50/50 to-pink-50/80 p-6 rounded-2xl mb-5 font-serif text-lg leading-relaxed italic text-gray-700 whitespace-pre-wrap border border-violet-100/80">
                         {letter.content}
                       </div>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-romantic-700 bg-romantic-100 px-3 py-1.5 rounded-full">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-violet-800 bg-gradient-to-r from-violet-100 to-fuchsia-100 px-3 py-1.5 rounded-full">
                           {letter.style}
                         </span>
                         <div className="flex-1" />
@@ -641,8 +643,8 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      <footer className="py-8 text-center border-t border-romantic-100/80 bg-white/40 backdrop-blur-sm">
-        <p className="text-romantic-500 font-serif italic text-sm">
+      <footer className="py-8 text-center footer-gradient backdrop-blur-sm">
+        <p className="bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent font-serif italic text-sm font-medium">
           &ldquo;Las palabras tienen el poder de cruzar cualquier distancia.&rdquo;
         </p>
         <p className="text-gray-400 text-xs mt-2 tracking-wide">Ecos del Corazón · Hecho con amor</p>
